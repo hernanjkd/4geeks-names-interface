@@ -19,7 +19,7 @@ const getState = ({ getStore, setStore }) => {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify(changes)
-				});
+				}).then(() => console.log("done"));
 			}
 		}
 	};
