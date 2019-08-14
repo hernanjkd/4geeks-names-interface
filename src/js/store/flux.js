@@ -1,33 +1,25 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			firstNullNull: [],
+			manyEmptySpaces: [],
+			allLowerOrUpper: [],
+			firstLastOneField: [],
+			moreThanTwoOneField: [],
+			hasNull: [],
+			notCapitalized: []
 		},
 		actions: {
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			editStudent: (id, changes) => {
+				const url = `https://api.breatheco.de/student/${id}?access_token=${process.env.ACCESS_TOKEN}`;
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+				fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(changes)
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
 		}
 	};

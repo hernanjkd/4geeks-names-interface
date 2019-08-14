@@ -1,45 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.scss";
 
 export class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			first_name: "",
+			last_name: ""
+		};
+	}
 	render() {
 		return (
-			<div className="container">
-				<ul className="list-group">
-					<Context.Consumer>
-						{({ store, actions }) => {
-							return store.demo.map((item, index) => {
-								return (
-									<li
-										key={index}
-										className="list-group-item d-flex justify-content-between"
-										style={{ background: item.background }}>
-										<Link to={"/single/" + index}>
-											<span>Link to: {item.title}</span>
-										</Link>
-										<p style={{ color: item.initial }}>
-											{"Check store/store.js scroll to the actions to see the code "}
-										</p>
-										<button
-											className="btn btn-success"
-											onClick={() => actions.changeColor(index, "orange")}>
-											Change Color
-										</button>
-									</li>
-								);
-							});
-						}}
-					</Context.Consumer>
-				</ul>
-				<br />
-				<Link to="/">
-					<button className="btn btn-primary">Back home</button>
-				</Link>
+			<div className="text-center mt-5">
+				<div>email: {e.email || e.username}</div>
+				<div>
+					first name:
+					<input
+						onChange={e => this.setState({ first_name: e.target.value })}
+						type="text"
+						defaultValue={e.first_name}
+					/>
+				</div>
+				<div>
+					last name:{" "}
+					<input
+						onChange={e => this.setState({ last_name: e.target.value })}
+						type="text"
+						defaultValue={e.last_name}
+					/>
+				</div>
 			</div>
 		);
 	}
 }
+
+Demo.propTypes = {
+	e: PropTypes.object
+};
