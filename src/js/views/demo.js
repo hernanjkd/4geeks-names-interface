@@ -18,7 +18,6 @@ export class Demo extends React.Component {
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
-					console.log(this.state);
 					return (
 						<div className="text-center mt-5">
 							<div>email: {e.email || e.username}</div>

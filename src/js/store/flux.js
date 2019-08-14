@@ -19,7 +19,9 @@ const getState = ({ getStore, setStore }) => {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify(changes)
-				}).then(() => console.log("done"));
+				})
+					.then(resp => resp.ok && console.log("done"))
+					.catch(err => console.error(err));
 			}
 		}
 	};

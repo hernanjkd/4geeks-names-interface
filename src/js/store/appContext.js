@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		}
 
 		componentDidMount() {
-			fetch(`https://api.breatheco.de/students/?access_token=${process.env.ACCESS_TOKEN}`)
+			fetch(`https://api.breatheco.de/students/?access_token=${process.env.ACCESS_TOKEN}`, { cache: "no-cache" })
 				.then(resp => resp.json())
 				.then(data => {
 					const fullTrim = str => {
