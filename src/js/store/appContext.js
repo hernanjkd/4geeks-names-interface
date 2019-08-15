@@ -148,8 +148,8 @@ const injectContext = PassedComponent => {
 							allLowerOrUpper: allLowerOrUpper,
 							firstLastOneField: firstLastOneField,
 							moreThanTwoOneField: moreThanTwoOneField,
-							hasNull: hasNull,
-							notCapitalized: notCapitalized
+							notCapitalized: notCapitalized,
+							hasNull: hasNull
 						}
 					});
 				});
